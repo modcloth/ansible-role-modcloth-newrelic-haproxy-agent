@@ -1,0 +1,29 @@
+---
+- name: 'install newrelic_haproxy_agent gem (and dependencies)'
+  gem: name={{item}} user_install=no
+  with_items:
+  - newrelic_haproxy_agent
+  - bundler
+  - faraday
+  - multipart-post
+
+- name: 'write newrelic_haproxy_agent config'
+  template:
+    src={{newrelic_haproxy_agent_config_template}}
+    dest=/etc/newrelic/newrelic_haproxy_agent.yml
+  when: newrelic_haproxy_agent_config_template != ""
+  register: newrelic_haproxy_agent_conf
+
+- name: 'write upstart config'
+  template:
+    src=newrelic_haproxy_agent.conf.j2
+    dest=/etc/init/newrelic_haproxy_agent.conf
+  register: newrelic_haproxy_agent_upstart
+
+- name: 'restart service'
+  service: name=newrelic_haproxy_agent state=restarted
+  when: newrelic_haproxy_agent_conf.changed or
+        newrelic_haproxy_agent_upstart.changed
+
+- name: 'start service'
+  service: name=newrelic_haproxy_agent state=started

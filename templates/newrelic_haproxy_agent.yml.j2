@@ -1,0 +1,22 @@
+# {{ansible_managed}}
+# vim: ft=yaml
+
+newrelic:
+  license_key: {{new_relic_license_key}}
+  verbose: {{newrelic_haproxy_agent_verbose}}
+
+agents:
+{% for agent in newrelic_haproxy_agent_agents %}
+  {{agent.name}}:
+    uri: {{agent.uri}}
+    proxy: {{agent.proxy}}
+    {% if agent.proxy_type is defined -%}
+    proxy_type: {{agent.proxy_type}}
+    {% endif -%}
+    {% if agent.user is defined -%}
+    user: {{agent.user}}
+    {% endif -%}
+    {% if agent.password is defined -%}
+    password: {{agent.password}}
+    {% endif -%}
+{% endfor %}

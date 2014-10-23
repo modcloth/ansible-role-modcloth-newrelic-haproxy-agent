@@ -1,0 +1,9 @@
+---
+- hosts: all
+  roles:
+  - role: modcloth.newrelic_haproxy_agent
+    newrelic_haproxy_agent_agents:
+    - name: 'Foo'
+      uri: 'www.example.com/stats;#csv'
+      proxy: 'abcd'
+      proxy_type: 'frontend'
