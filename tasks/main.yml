@@ -1,6 +1,6 @@
 ---
 - name: 'install newrelic_haproxy_agent gem (and dependencies)'
-  gem: name={{item}} user_install=no
+  gem: name={{item}} user_install=no repository={{newrelic_haproxy_agent_repository}}
   with_items:
   - newrelic_haproxy_agent
   - bundler

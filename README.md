@@ -17,6 +17,7 @@ newrelic_haproxy_agent_config_template: # template for config (default template 
 # variables for default config
 new_relic_license_key: # NewRelic license key
 newrelic_haproxy_agent_verbose: # 0 or 1 depending on if you want verbose output from the plugin
+newrelic_haproxy_agent_repository: # gem repository to pull from
 
 # list of HAProxy instances to monitor
 newrelic_haproxy_agent_agents: []
