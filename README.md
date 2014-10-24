@@ -44,6 +44,7 @@ Example Playbook
 - hosts: all
   roles:
   - role: modcloth.newrelic_haproxy_agent
+    new_relic_license_key: "ABCD"
     newrelic_haproxy_agent_agents:
     - name: 'Foo'
       uri: 'www.example.com/stats;#csv'
