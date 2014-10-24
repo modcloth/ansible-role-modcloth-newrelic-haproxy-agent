@@ -9,6 +9,4 @@ stop on runlevel [!2345]
 respawn
 respawn limit 3 30
 
-script
-  newrelic_haproxy_agent run
-end script
+exec newrelic_haproxy_agent run
