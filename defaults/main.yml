@@ -1,0 +1,5 @@
+---
+newrelic_haproxy_agent_verbose: 0
+newrelic_haproxy_agent_config_template: 'newrelic_haproxy_agent.yml.j2'
+newrelic_haproxy_agent_repository: https://rubygems.org
+newrelic_haproxy_agent_agents: []
