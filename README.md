@@ -16,7 +16,7 @@ newrelic_haproxy_agent_config_template: # template for config (default template 
 
 # variables for default config
 new_relic_license_key: # NewRelic license key
-newrelic_haproxy_agent_verbose: # 0 or 1 depending on if you want verbose output from the plugin
+newrelic_haproxy_agent_verbose: # 1 for verbose output from the plugin (0 otherwise)
 newrelic_haproxy_agent_repository: # gem repository to pull from
 
 # list of HAProxy instances to monitor
@@ -24,8 +24,8 @@ newrelic_haproxy_agent_agents: []
 # each value should be a dictionary with the following values:
 # name (required): Name to send to NewRelic
 # uri (required): URI to query for CSV HAProxy statistics
-# proxy (required): Proxy in instance to monitor
-# proxy_type (optional): Proxy type (frontend or backend) if multiple proxies have the same name
+# proxy (required): Proxy instance to monitor
+# proxy_type (optional): Proxy type (frontend, backend, or listen) if multiple proxies have the same name
 # user(optional): User to use for HTTP Basic Auth
 # password(optional): Password to use for HTTP Basic Auth
 ```
