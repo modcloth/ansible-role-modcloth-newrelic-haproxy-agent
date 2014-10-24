@@ -7,6 +7,9 @@
   - faraday
   - multipart-post
 
+- name: 'make /etc/newrelic directory'
+  file: path=/etc/newrelic state=directory
+
 - name: 'write newrelic_haproxy_agent config'
   template:
     src={{newrelic_haproxy_agent_config_template}}
